@@ -1,0 +1,917 @@
+PatientID,ObservationDate,ObservationCode,Description
+TEST_PATIENT,2000-01-01,TEST_CODE,TEST Description
+TEST_PATIENT,2000-01-02,TEST_CODE_A,TEST Description (A)
+TEST_PATIENT,2000-01-03,TEST_CODE_B,TEST Description (B)
+29581d13-2687-402f-9c4c-06141a319e61,2002-02-24,1870230,NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector
+29581d13-2687-402f-9c4c-06141a319e61,2002-02-24,91934008,Allergy to nut
+29581d13-2687-402f-9c4c-06141a319e61,2002-02-24,997488,Fexofenadine hydrochloride 30 MG Oral Tablet
+29581d13-2687-402f-9c4c-06141a319e61,2002-12-26,446096008,Perennial allergic rhinitis
+29581d13-2687-402f-9c4c-06141a319e61,2004-12-25,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2004-12-25,233678006,Childhood asthma
+29581d13-2687-402f-9c4c-06141a319e61,2004-12-25,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2005-11-29,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2005-11-29,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2006-12-05,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2006-12-05,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2007-12-11,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2007-12-11,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2008-12-16,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2008-12-16,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2009-12-22,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2009-12-22,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2010-12-17,254837009,Malignant neoplasm of breast (disorder)
+29581d13-2687-402f-9c4c-06141a319e61,2010-12-28,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2010-12-28,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2010-12-28,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2010-12-28,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2012-01-03,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2012-01-03,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2013-01-08,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2013-01-08,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2013-01-08,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2013-01-08,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2013-07-09,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2013-07-09,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2014-01-14,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2014-01-14,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2014-01-14,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2014-01-14,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2015-01-20,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2015-01-20,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2016-01-26,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2016-01-26,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2017-01-31,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2017-01-31,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2017-01-31,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2017-01-31,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2018-02-06,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2018-02-06,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2018-11-25,748879,Levora 0.15/30 28 Day Pack
+29581d13-2687-402f-9c4c-06141a319e61,2019-02-12,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2019-02-12,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2019-07-06,312681000,Bone density scan (procedure)
+29581d13-2687-402f-9c4c-06141a319e61,2019-07-06,71651007,Mammography (procedure)
+29581d13-2687-402f-9c4c-06141a319e61,2019-12-19,DALY,DALY
+29581d13-2687-402f-9c4c-06141a319e61,2019-12-19,QALY,QALY
+29581d13-2687-402f-9c4c-06141a319e61,2019-12-19,QOLS,QOLS
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,140,Influenza  seasonal  injectable  preservative free
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,29463-7,Body Weight
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,39156-5,Body Mass Index
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,430193006,Medication Reconciliation (procedure)
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,59576-9,Body mass index (BMI) [Percentile] Per age and gender
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,72166-2,Tobacco smoking status NHIS
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,72514-3,Pain severity - 0-10 verbal numeric rating [Score] - Reported
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,8302-2,Body Height
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,8462-4,Diastolic Blood Pressure
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,8480-6,Systolic Blood Pressure
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,8867-4,Heart rate
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,895994,120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler
+29581d13-2687-402f-9c4c-06141a319e61,2020-02-18,9279-1,Respiratory rate
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,261352009,Face mask (physical object)
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,267036007,Dyspnea (finding)
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,2708-6,Oxygen saturation in Arterial blood
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,29463-7,Body Weight
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,36955009,Loss of taste (finding)
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,386661006,Fever (finding)
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,56018004,Wheezing (finding)
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,8310-5,Body temperature
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,840539006,COVID-19
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,840544004,Suspected COVID-19
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,8462-4,Diastolic Blood Pressure
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,8480-6,Systolic Blood Pressure
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,8867-4,Heart rate
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92130-4,Rhinovirus RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92131-2,Respiratory syncytial virus RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92134-6,Human metapneumovirus RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92138-7,Parainfluenza virus 3 RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92139-5,Parainfluenza virus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92140-3,Parainfluenza virus 1 RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92141-1,Influenza virus B RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,92142-9,Influenza virus A RNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,9279-1,Respiratory rate
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,94040-3,Adenovirus A+B+C+D+E DNA [Presence] in Respiratory specimen by NAA with probe detection
+29581d13-2687-402f-9c4c-06141a319e61,2020-03-13,94531-1,SARS-CoV-2 RNA Pnl Resp NAA+probe
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,1989-06-14,40055000,Chronic sinusitis (disorder)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2008-12-05,162864005,Body mass index 30+ - obesity (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2011-06-17,19169002,Miscarriage in first trimester
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,197361,Amlodipine 5 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,197361,Amlodipine 5 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,309362,Clopidogrel 75 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,309362,Clopidogrel 75 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,312961,Simvastatin 20 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,312961,Simvastatin 20 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,53741008,Coronary Heart Disease
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,705129,Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-13,705129,Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-20,197361,Amlodipine 5 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-20,309362,Clopidogrel 75 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-20,312961,Simvastatin 20 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2017-10-20,705129,Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2018-10-18,1000126,1 ML medroxyprogesterone acetate 150 MG/ML Injection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2018-10-26,197361,Amlodipine 5 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2018-10-26,309362,Clopidogrel 75 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2018-10-26,312961,Simvastatin 20 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2018-10-26,705129,Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-07-26,76601001,Intramuscular injection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-09-30,DALY,DALY
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-09-30,QALY,QALY
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-09-30,QOLS,QOLS
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-10-13,749762,Seasonique 91 Day Pack
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-10-25,76601001,Intramuscular injection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,140,Influenza  seasonal  injectable  preservative free
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,197361,Amlodipine 5 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,309362,Clopidogrel 75 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,312961,Simvastatin 20 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,39156-5,Body Mass Index
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,430193006,Medication Reconciliation (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,705129,Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,72166-2,Tobacco smoking status NHIS
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,72514-3,Pain severity - 0-10 verbal numeric rating [Score] - Reported
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,8302-2,Body Height
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2019-11-01,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-01-24,76601001,Intramuscular injection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,198440,Acetaminophen 500 MG Oral Tablet
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2123111,NDA020503 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,233604007,Pneumonia (disorder)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,261352009,Face mask (physical object)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,267036007,Dyspnea (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,271825005,Respiratory distress (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,36955009,Loss of taste (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,386661006,Fever (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,389087006,Hypoxemia (disorder)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,399208008,Plain chest X-ray (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,49727002,Cough (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,56018004,Wheezing (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,770349000,Sepsis caused by virus (disorder)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,840539006,COVID-19
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,840544004,Suspected COVID-19
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,84229001,Fatigue (finding)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,854235,0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92130-4,Rhinovirus RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92131-2,Respiratory syncytial virus RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92134-6,Human metapneumovirus RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92138-7,Parainfluenza virus 3 RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92139-5,Parainfluenza virus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92140-3,Parainfluenza virus 1 RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92141-1,Influenza virus B RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,92142-9,Influenza virus A RNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,94040-3,Adenovirus A+B+C+D+E DNA [Presence] in Respiratory specimen by NAA with probe detection
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-07,94531-1,SARS-CoV-2 RNA Pnl Resp NAA+probe
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-08,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-09,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-10,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-11,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-12,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-13,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-14,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-15,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-16,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,706870000,Acute pulmonary embolism (disorder)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,854252,1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-17,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-18,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,14804-9,Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma by Lactate to pyruvate reaction
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,1988-5,C reactive protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2157-6,Creatine kinase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2276-4,Ferritin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,33959-8,Procalcitonin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,48065-7,Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,5902-2,Prothrombin time (PT)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,6301-6,INR in Platelet poor plasma by Coagulation assay
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,89579-7,Troponin I.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-19,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,1742-6,Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,1751-7,Albumin [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,17861-6,Calcium [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,1920-8,Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,1975-2,Bilirubin.total [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2028-9,Carbon dioxide  total [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2075-0,Chloride [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2160-0,Creatinine [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2345-7,Glucose [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2708-6,Oxygen saturation in Arterial blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2823-3,Potassium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2885-2,Protein [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,29463-7,Body Weight
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,2951-2,Sodium [Moles/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,3094-0,Urea nitrogen [Mass/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,33914-3,Glomerular filtration rate/1.73 sq M.predicted
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,371908008,Oxygen administration by mask (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,431182000,Placing subject in prone position (procedure)
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,4544-3,Hematocrit [Volume Fraction] of Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,5905-5,Monocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,6690-2,Leukocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,704-7,Basophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,706-2,Basophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,711-2,Eosinophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,713-8,Eosinophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,718-7,Hemoglobin [Mass/volume] in Blood
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,731-0,Lymphocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,736-9,Lymphocytes/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,742-7,Monocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,751-8,Neutrophils [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,770-8,Neutrophils/100 leukocytes in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,777-3,Platelets [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,785-6,MCH [Entitic mass] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,786-4,MCHC [Mass/volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,787-2,MCV [Entitic volume] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,788-0,Erythrocyte distribution width [Ratio] by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,789-8,Erythrocytes [#/volume] in Blood by Automated count
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,8462-4,Diastolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,8480-6,Systolic Blood Pressure
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,8867-4,Heart rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-20,9279-1,Respiratory rate
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-27,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-27,94531-1,SARS-CoV-2 RNA Pnl Resp NAA+probe
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-28,8310-5,Body temperature
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-03-28,94531-1,SARS-CoV-2 RNA Pnl Resp NAA+probe
+3c3b89b1-cb41-4f94-9193-2f3da4fe38e5,2020-04-24,76601001,Intramuscular injection
+da454f92-9e90-43f8-9514-550fbaa6de3d,1983-01-22,417532002,Allergy to fish
+da454f92-9e90-43f8-9514-550fbaa6de3d,1983-01-22,418689008,Allergy to grass pollen
+da454f92-9e90-43f8-9514-550fbaa6de3d,1983-01-22,419263009,Allergy to tree pollen
+da454f92-9e90-43f8-9514-550fbaa6de3d,1983-01-22,424213003,Allergy to bee venom
+da454f92-9e90-43f8-9514-550fbaa6de3d,1983-01-22,477045,Chlorpheniramine Maleate 2 MG/ML Oral Solution
+da454f92-9e90-43f8-9514-550fbaa6de3d,1984-10-05,446096008,Perennial allergic rhinitis
+da454f92-9e90-43f8-9514-550fbaa6de3d,2000-11-22,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2000-11-22,59621000,Hypertension
+da454f92-9e90-43f8-9514-550fbaa6de3d,2001-11-28,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2002-12-04,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2003-12-10,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2004-12-15,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2005-12-21,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2006-12-27,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2008-01-02,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2009-01-07,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2010-01-13,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2011-01-19,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2012-01-25,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2013-01-30,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2014-02-05,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2015-02-11,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2015-02-11,87433001,Pulmonary emphysema (disorder)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2016-02-17,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2016-02-17,896209,60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler
+da454f92-9e90-43f8-9514-550fbaa6de3d,2017-02-22,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2017-02-22,896209,60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler
+da454f92-9e90-43f8-9514-550fbaa6de3d,2018-02-28,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2018-02-28,896209,60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler
+da454f92-9e90-43f8-9514-550fbaa6de3d,2019-03-06,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2019-03-06,896209,60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler
+da454f92-9e90-43f8-9514-550fbaa6de3d,2019-09-29,DALY,DALY
+da454f92-9e90-43f8-9514-550fbaa6de3d,2019-09-29,QALY,QALY
+da454f92-9e90-43f8-9514-550fbaa6de3d,2019-09-29,QOLS,QOLS
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,127783003,Spirometry (procedure)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,140,Influenza  seasonal  injectable  preservative free
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,19926-5,FEV1/FVC
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,29463-7,Body Weight
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,39156-5,Body Mass Index
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,429503,Hydrochlorothiazide 12.5 MG
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,430193006,Medication Reconciliation (procedure)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,72166-2,Tobacco smoking status NHIS
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,72514-3,Pain severity - 0-10 verbal numeric rating [Score] - Reported
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,8302-2,Body Height
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,8462-4,Diastolic Blood Pressure
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,8480-6,Systolic Blood Pressure
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,8867-4,Heart rate
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,896209,60 ACTUAT Fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-11,9279-1,Respiratory rate
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,261352009,Face mask (physical object)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,2708-6,Oxygen saturation in Arterial blood
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,29463-7,Body Weight
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,36955009,Loss of taste (finding)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,386661006,Fever (finding)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,49727002,Cough (finding)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,8310-5,Body temperature
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,840539006,COVID-19
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,840544004,Suspected COVID-19
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,84229001,Fatigue (finding)
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,8462-4,Diastolic Blood Pressure
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,8480-6,Systolic Blood Pressure
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,8867-4,Heart rate
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92130-4,Rhinovirus RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92131-2,Respiratory syncytial virus RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92134-6,Human metapneumovirus RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92138-7,Parainfluenza virus 3 RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92139-5,Parainfluenza virus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92140-3,Parainfluenza virus 1 RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92141-1,Influenza virus B RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,92142-9,Influenza virus A RNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,9279-1,Respiratory rate
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,94040-3,Adenovirus A+B+C+D+E DNA [Presence] in Respiratory specimen by NAA with probe detection
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-03-13,94531-1,SARS-CoV-2 RNA Pnl Resp NAA+probe
+da454f92-9e90-43f8-9514-550fbaa6de3d,2020-05-13,429609002,Lung volume reduction surgery (procedure)

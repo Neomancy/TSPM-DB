@@ -247,7 +247,7 @@ class TspmDB:
 
 
 
-    def get_sequences(self, temporal_buckets:list=[], table_name:str="", pandas=False):
+    def get_sequences(self, temporal_buckets:list=[], table_name:str="", pandas=False, with_names:bool=False):
         """used to generate temporal sequences into a table and return the results"""
         table_names = {
             "SEQ": table_name
@@ -276,12 +276,28 @@ class TspmDB:
             temporal_SQL += "END AS temporal_distance"
 
         # build the select statement
+        if with_names is False:
         select_SQL = f"""
-            SELECT obs_code_1, obs_code_2, COUNT(*) as cnt,
+                SELECT patient_id, obs1.obs_code AS obs_code_1, obs2.obs_code AS obs_code_2, 
             {temporal_SQL}
-            FROM {table_names["SEQ"]}
-            GROUP BY obs_code_1, obs_code_2, temporal_distance
+                FROM {table_names["SEQ"]} seq
+                JOIN lookup_observations obs1 ON (seq.obs_code_1 = obs1.obs_code_id)
+                JOIN lookup_observations obs2 ON (seq.obs_code_2 = obs2.obs_code_id)
+                JOIN lookup_patients pat ON (seq.patient_num = pat.patient_num)
         """
+        else:
+            select_SQL = f"""
+                SELECT patient_id, 
+                      obs1.obs_code AS obs_code_1,
+                      obs1.obs_description AS obs_name_1,
+                      obs2.obs_code AS obs_code_2, 
+                      obs2.obs_description AS obs_name_2,
+                {temporal_SQL}
+                FROM {table_names["SEQ"]} seq
+                JOIN lookup_observations obs1 ON (seq.obs_code_1 = obs1.obs_code_id)
+                JOIN lookup_observations obs2 ON (seq.obs_code_2 = obs2.obs_code_id)
+                JOIN lookup_patients pat ON (seq.patient_num = pat.patient_num)
+            """
 
         # retrieve the data
         if pandas is True:

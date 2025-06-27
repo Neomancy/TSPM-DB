@@ -247,7 +247,7 @@ def test_INGEST_ALL_THE_DATA():
     # elapsed = ingest_end - ingest_start
     # print(f"Ingest Time: {elapsed:0.4f} seconds")
 
-    test_obj.generate_sequences2()
+    test_obj.generate_sequences()
     raise SyntaxError(f"Ingest Time: {elapsed:0.4f} seconds")
 
 

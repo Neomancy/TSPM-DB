@@ -5,49 +5,10 @@ from concurrent.futures import ProcessPoolExecutor
 from concurrent.futures import wait
 from io import TextIOWrapper
 import sqlite3
+import pandas as pd
 import csv
 from zipfile import ZipFile
 import os
-
-
-# === <subprocess for building a single patient's sequences> ===========================================
-def _process_build_seq(db_file, insert_table, current_patient_num, temporal_statement):
-    sql_statement = """
-        WITH
-          subquery (code, occurred_on) AS (
-            SELECT
-              obs_code,
-              MIN(obs_date)
-            FROM source_data
-            WHERE patient_num = """ + str(current_patient_num) + """
-            GROUP BY obs_code
-            ORDER BY MIN(obs_date) ASC
-          )
-        SELECT
-          t1.code AS code1,
-          t2.code AS code2,
-          """ + temporal_statement + """
-        FROM
-          subquery AS t1
-          JOIN subquery AS t2
-        WHERE 
-          t1.occurred_on <= t2.occurred_on
-          AND t1.code != t2.code;
-        """
-    with sqlite3.Connection(db_file, timeout=600) as process_db_conn:
-        db_cur = process_db_conn.cursor()
-        db_cur.execute("PRAGMA temp_store=2") # store temp info in memory
-        results = db_cur.execute(sql_statement)
-
-        insert_batch = []
-        for row in results.fetchall():
-            insert_batch.append((current_patient_num, row[0], row[1], row[2]))
-        # insert the data for the patient
-        db_cur.executemany("INSERT INTO " + insert_table + " (patient_num, obs_code_1, obs_code_2, temporal_distance) VALUES (?,?,?,?)", insert_batch)
-        process_db_conn.commit()
-        process_db_conn.close()
-# === </subprocess for building a single patient's sequences> ===========================================
-
 
 class TspmDB:
     """Core object for DB-based TSPM calculations"""
@@ -62,6 +23,8 @@ class TspmDB:
             else:
                 if reuse_cache is not True:
                     raise FileExistsError
+
+        self.destructive = destructive
         self.reuse_cache = reuse_cache
         self.db = dbfile
         self.conn = sqlite3.connect(dbfile)
@@ -246,11 +209,7 @@ class TspmDB:
 
 
 
-
-
     def generate_sequences(self, temporal_buckets:list=[], table_name:str=""):
-        """used to generate temporal sequences into a table"""
-        # handle table names
         table_names = {
             "SEQ": table_name
         }
@@ -267,51 +226,7 @@ class TspmDB:
             bucket_num = 0
             for bucket in temporal_buckets:
                 bucket_num += 1
-                temporal_SQL += "WHEN julianday(t2.occurred_on) - julianday(t1.occurred_on) BETWEEN " + bucket[0] + " AND " + bucket[1] + " THEN " + str(bucket_num) + "\n"
-            temporal_SQL += "ELSE 0\n"
-            temporal_SQL += "END AS time_diff"
-
-        # generate sequences
-        db_cur = self.conn.cursor()
-        result = db_cur.execute("SELECT MAX(patient_num) FROM source_data;")
-        max_patient_num = result.fetchone()[0]
-
-
-        # build all the sequences (one patient at a time) using multiprocessing
-        timer_start = time.perf_counter()
-        with ProcessPoolExecutor(max_workers=self.max_cpu_core) as pool:
-            futures = [pool.submit(_process_build_seq, self.db, table_names["SEQ"], patient_num, temporal_SQL) for patient_num in range(1, max_patient_num + 1)]
-            wait(futures)
-
-        timer_end = time.perf_counter()
-        print(f"Elapsed time: {timer_end-timer_start} seconds")
-        raise BaseException(f"Elapsed time: {timer_end-timer_start} seconds")
-
-    # Ingest Time: 165.606 seconds
-    # Sequential Elapsed time: 1731.138 seconds (160,104,205) 22,814,602 events [28.85 min] - 1 CPU Core
-    # Parallel Elapsed time: 1781.364 seconds () 22,814,602 events [] - 16 CPU Cores (IO-Bound performance)
-    # SQLite3 Elapsed time 199.783 seconds (22,908,860) - 1 CPU Core (CPU-Bound performance) using Temp disk for table materialization
-    # SQLite3 Elapsed time 63.407 seconds (160,104,205) - 1 CPU Core (CPU-Bound performance) using MEMORY for table materialization
-
-
-    def generate_sequences2(self, temporal_buckets:list=[], table_name:str=""):
-        table_names = {
-            "SEQ": table_name
-        }
-        if len(table_names["SEQ"]) < 3:
-            table_names["SEQ"] = 'seq_optimized'
-        self._create_seq_table(self.conn, table_names["SEQ"])
-
-        # handle buckets
-        temporal_SQL = ""
-        if len(temporal_buckets) == 0:
-            temporal_SQL = "CAST(julianday(t2.occurred_on) - julianday(t1.occurred_on) AS INTEGER) AS time_diff"
-        else:
-            temporal_SQL = "CASE\n"
-            bucket_num = 0
-            for bucket in temporal_buckets:
-                bucket_num += 1
-                temporal_SQL += "WHEN julianday(t2.occurred_on) - julianday(t1.occurred_on) BETWEEN " + bucket[0] + " AND " + bucket[1] + " THEN " + str(bucket_num) + "\n"
+                temporal_SQL += "WHEN julianday(t2.occurred_on) - julianday(t1.occurred_on) BETWEEN " + str(bucket[0]) + " AND " + str(bucket[1]) + " THEN " + str(bucket_num) + "\n"
             temporal_SQL += "ELSE 0\n"
             temporal_SQL += "END AS time_diff"
 
@@ -337,18 +252,56 @@ class TspmDB:
         timer_start = time.perf_counter()
         db_cur.execute(build_SQL)
         timer_end = time.perf_counter()
-        print(f"Elapsed time: {timer_end-timer_start} seconds")
-        raise BaseException(f"Elapsed time: {timer_end-timer_start} seconds")
+        # print(f"Elapsed time: {timer_end-timer_start} seconds")
+        return True
 
 
 
-    def get_sequences(self, temporal_buckets=[], table_name=False, pandas=False):
+    def get_sequences(self, temporal_buckets:list=[], table_name:str="", pandas=False):
         """used to generate temporal sequences into a table and return the results"""
         table_names = {
             "SEQ": table_name
         }
-        if table_names["SEQ"] is False:
+        if len(table_names["SEQ"]) < 3:
             table_names["SEQ"] = 'seq_optimized'
+
+        # see if the correct table name is given
+        cur = self.db_conn.cursor()
+        cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = [name[0] for name in cur.fetchall()]
+        # create table if it is missing
+        if table_names["SEQ"] not in tables:
+            raise NameError(f"given sequence table (\"{table_names['SEQ']}\") does not exist")
+
+        # create temporal buckets
+        if len(temporal_buckets) == 0:
+            temporal_SQL = "temporal_distance"
+        else:
+            temporal_SQL = "CASE\n"
+            bucket_num = 0
+            for bucket in temporal_buckets:
+                bucket_num += 1
+                temporal_SQL += "WHEN temporal_distance BETWEEN " + str(bucket[0]) + " AND " + str(bucket[1]) + " THEN " + str(bucket_num) + "\n"
+            temporal_SQL += "ELSE 0\n"
+            temporal_SQL += "END AS temporal_distance"
+
+        # build the select statement
+        select_SQL = f"""
+            SELECT obs_code_1, obs_code_2, COUNT(*) as cnt,
+            {temporal_SQL}
+            FROM {table_names["SEQ"]}
+            GROUP BY obs_code_1, obs_code_2, temporal_distance
+        """
+
+        # retrieve the data
+        if pandas is True:
+            return pd.read_sql_query(select_SQL, self.db_conn)
+        else:
+            cur.execute(select_SQL)
+            return cur.fetchall()
+
+
+
 
     def generate_sequence_frequencies(self, table_name=False, seq_table=False):
         table_names = {
@@ -415,15 +368,27 @@ class TspmDB:
         tables = [name[0] for name in cur.fetchall()]
 
         # create table if it is missing
-        if tablename not in tables:
-            cur.execute("""
-                CREATE TABLE """ + tablename + """ (
+        if tablename in tables:
+            if self.destructive is not True:
+                raise NameError("sequence table already exists (and destructive option not selected)")
+            else:
+                cur.execute(f"DELETE FROM {tablename};")
+        else:
+            cur.execute(f"""
+                CREATE TABLE {tablename} (
                     patient_num INTEGER     NOT NULL,
                     obs_code_1  INTEGER     NOT NULL,
                     obs_code_2  INTEGER     NOT NULL,
                     temporal_distance   INTEGER NOT NULL
                 );
             """)
+            cur.execute(f"""
+                CREATE INDEX idx_{tablename} ON {tablename} (
+                    obs_code_1 ASC,
+                    obs_code_2 ASC,
+                    temporal_distance ASC
+                );
+                """)
             db_conn.commit()
 
     def _create_db(self, db_conn):

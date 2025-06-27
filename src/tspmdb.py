@@ -209,7 +209,7 @@ class TspmDB:
 
 
 
-    def generate_sequences(self, temporal_buckets:list=[], table_name:str=""):
+    def generate_sequences(self, table_name:str=""):
         table_names = {
             "SEQ": table_name
         }
@@ -218,17 +218,7 @@ class TspmDB:
         self._create_seq_table(self.conn, table_names["SEQ"])
 
         # handle buckets
-        temporal_SQL = ""
-        if len(temporal_buckets) == 0:
             temporal_SQL = "CAST(julianday(t2.occurred_on) - julianday(t1.occurred_on) AS INTEGER) AS time_diff"
-        else:
-            temporal_SQL = "CASE\n"
-            bucket_num = 0
-            for bucket in temporal_buckets:
-                bucket_num += 1
-                temporal_SQL += "WHEN julianday(t2.occurred_on) - julianday(t1.occurred_on) BETWEEN " + str(bucket[0]) + " AND " + str(bucket[1]) + " THEN " + str(bucket_num) + "\n"
-            temporal_SQL += "ELSE 0\n"
-            temporal_SQL += "END AS time_diff"
 
         # build the sequence table
         build_SQL = f"""INSERT INTO {table_names["SEQ"]} (patient_num, obs_code_1, obs_code_2, temporal_distance)

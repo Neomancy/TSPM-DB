@@ -319,16 +319,62 @@ class TspmDB:
         if table_names["FREQ"] is False:
             table_names["FREQ"] = 'calc_seq_freq'
 
-    def get_sequence_frequencies(self, table_name=False, seq_table=False, pandas=False):
+    def get_sequence_frequencies(self, temporal_buckets:list=[], table_name:str="", seq_table:str="", pandas:bool=False, with_names:bool=False):
         """used to generate temporal sequences into a table and return the results"""
         table_names = {
             "SEQ": seq_table,
             "FREQ": table_name
         }
-        if table_names["SEQ"] is False:
+        if len(table_names["SEQ"]) < 3:
             table_names["SEQ"] = 'seq_optimized'
-        if table_names["FREQ"] is False:
+        if len(table_names["FREQ"]) < 3:
             table_names["FREQ"] = 'calc_seq_freq'
+
+        # see if the correct table name is given
+        cur = self.db_conn.cursor()
+        cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = [name[0] for name in cur.fetchall()]
+        # create table if it is missing
+        if table_names["SEQ"] not in tables:
+            raise NameError(f"given sequence table (\"{table_names['SEQ']}\") does not exist")
+        if table_names["FREQ"] not in tables:
+            raise NameError(f"given frequency table (\"{table_names['FREQ']}\") does not exist")
+
+        # create temporal buckets
+        if len(temporal_buckets) == 0:
+            temporal_SQL = "temporal_distance,"
+        else:
+            temporal_SQL = "CASE\n"
+            bucket_num = 0
+            for bucket in temporal_buckets:
+                bucket_num += 1
+                temporal_SQL += "WHEN temporal_distance BETWEEN " + str(bucket[0]) + " AND " + str(bucket[1]) + " THEN " + str(bucket_num) + "\n"
+            temporal_SQL += "ELSE 0\n"
+            temporal_SQL += "END AS temporal_distance,"
+
+        # build the select statement
+        select_SQL = f"""
+            SELECT  
+                obs1.obs_code AS obs_code_1,
+                obs1.obs_description AS obs_name_1,
+                obs2.obs_code AS obs_code_2, 
+                obs2.obs_description AS obs_name_2,
+                {temporal_SQL}
+                COUNT(*) AS cnt,
+            FROM {table_names["SEQ"]} seq
+            JOIN lookup_observations obs1 ON (seq.obs_code_1 = obs1.obs_code_id)
+            JOIN lookup_observations obs2 ON (seq.obs_code_2 = obs2.obs_code_id)
+            GROUP BY seq.obs_code_1, seq.obs_code_2, temporal_distance
+        """
+
+        # retrieve the data
+        if pandas is True:
+            return pd.read_sql_query(select_SQL, self.db_conn)
+        else:
+            cur.execute(select_SQL)
+            return cur.fetchall()
+
+
 
     def calculate_ppmi(self, table_name=False, seq_table=False, seq_freq_table=False):
         """used to calculate the ppmi values of sequences and put into a table"""

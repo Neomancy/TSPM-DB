@@ -181,7 +181,7 @@ def test_ingest_csv_missing_colnames():
 
 
 def test_ingest_sqlite():
-    pass
+    raise Exception("TODO")
 
 def test_sequence_generation():
     temp_dir = tempfile.gettempdir()
@@ -205,11 +205,81 @@ def test_sequence_generation():
     test_obj.close()
     os.remove(temp_filename)
 
+def test_seqgen():
+    raise Exception("TODO")
+
 def test_seqgen_named_table():
-    pass
+    raise Exception("TODO")
 
 def test_seqgen_temporal_bucket():
-    pass
+    raise Exception("TODO")
+
+
+def test_INGEST_35k_DATA():
+
+    return True
+
+    ZIPFILE = "D:/RESEARCH/TSPM+/test_data/100k_synthea_covid19_csv.zip"
+
+    import time
+    temp_dir = tempfile.gettempdir()
+    temp_filename = os.path.join(temp_dir, "actual_35k_tspmdb.sqlite3")
+    # create object - don't overwrite db file explicit
+    test_obj = tspmdb.TspmDB(temp_filename, destructive=False, parallel_threads=8)
+
+
+    # col_names = {
+    #     "PATIENT": "patient_id",
+    #     "DATE": "obs_date",
+    #     "CODE": "obs_code",
+    #     "TEXT": "obs_description"
+    # }
+    # ingest_start = time.perf_counter()
+    # test_obj.ingest_csv("D:/RESEARCH/TSPM+/test_data/COVID_35k_subset.csv", col_names, show_progress=False)
+    # ingest_end = time.perf_counter()
+    # elapsed = ingest_end - ingest_start
+
+    timings = []
+    # timings.append(f"Ingest Time: {elapsed:0.4f} seconds")
+
+    ingest_start = time.perf_counter()
+    test_obj.generate_sequences_parallel(table_name="seq_optimized_parallel")
+    ingest_end = time.perf_counter()
+    elapsed = ingest_end - ingest_start
+    timings.append(f"Generate Time: {elapsed:0.4f} seconds")
+
+
+    # ingest_start = time.perf_counter()
+    # test_obj.get_sequence_frequencies()
+    # ingest_end = time.perf_counter()
+    # elapsed = ingest_end - ingest_start
+    # timings.append(f"Freq Generate Time: {elapsed:0.4f} seconds")
+
+
+    # bucket_config = [
+    #     (0, 1),
+    #     (1, 3),
+    #     (3, 7),
+    #     (7, 15)
+    # ]
+    # ingest_start = time.perf_counter()
+    # test_obj.get_sequence_frequencies(table_name="calc_seq_freq_buckets", temporal_buckets=bucket_config)
+    # ingest_end = time.perf_counter()
+    # elapsed = ingest_end - ingest_start
+    # timings.append(f"Bucketed Freq Generate Time: {elapsed:0.4f} seconds")
+
+
+    print(timings)
+
+    raise SyntaxError("\n".join(timings))
+
+
+    # cleanup
+    test_obj.close()
+    # os.remove(temp_filename)
+
+
+
 
 
 def test_INGEST_ALL_THE_DATA():
@@ -218,11 +288,12 @@ def test_INGEST_ALL_THE_DATA():
 
     import time
     temp_dir = tempfile.gettempdir()
-    temp_filename = os.path.join(temp_dir, "actual_tspmdb.sqlite3")
+    temp_filename = os.path.join(temp_dir, "actual_tspmdb2.sqlite3")
     # create object - don't overwrite db file explicit
-    test_obj = tspmdb.TspmDB(temp_filename, destructive=False, parallel_threads=4)
+    test_obj = tspmdb.TspmDB(temp_filename, destructive=False, parallel_threads=14, max_memory_mb=12288)
 
-    # ingest all the data
+    timings = []
+
     # ingest_start = time.perf_counter()
     # col_names = {
     #     "PATIENT": "PATIENT",
@@ -245,12 +316,45 @@ def test_INGEST_ALL_THE_DATA():
     # test_obj.ingest_csv("100k_synthea_covid19_csv/observations.csv", col_names, zipfile=ZIPFILE, show_progress=False)
     # ingest_end = time.perf_counter()
     # elapsed = ingest_end - ingest_start
-    # print(f"Ingest Time: {elapsed:0.4f} seconds")
 
+    # timings.append(f"Ingest Time: {elapsed:0.4f} seconds")
+
+    ingest_start = time.perf_counter()
     test_obj.generate_sequences()
-    raise SyntaxError(f"Ingest Time: {elapsed:0.4f} seconds")
+    ingest_end = time.perf_counter()
+    elapsed = ingest_end - ingest_start
+    timings.append(f"Generate Time: {elapsed:0.4f} seconds")
 
+
+    ingest_start = time.perf_counter()
+    test_obj.generate_sequences_parallel(table_name="seq_optimized_parallel")
+    ingest_end = time.perf_counter()
+    elapsed = ingest_end - ingest_start
+    timings.append(f"Parallel Generate Time: {elapsed:0.4f} seconds")
+
+    # ingest_start = time.perf_counter()
+    # test_obj.get_sequence_frequencies()
+    # ingest_end = time.perf_counter()
+    # elapsed = ingest_end - ingest_start
+    # timings.append(f"Freq Generate Time: {elapsed:0.4f} seconds")
+
+
+    # bucket_config = [
+    #     (0, 1),
+    #     (1, 3),
+    #     (3, 7),
+    #     (7, 15)
+    # ]
+    # ingest_start = time.perf_counter()
+    # test_obj.get_sequence_frequencies(table_name="calc_seq_freq_buckets", temporal_buckets=bucket_config)
+    # ingest_end = time.perf_counter()
+    # elapsed = ingest_end - ingest_start
+    # timings.append(f"Bucketed Freq Generate Time: {elapsed:0.4f} seconds")
+
+
+    print(timings)
+    raise SyntaxError("\n".join(timings))
 
     # cleanup
     test_obj.close()
-    # os.remove(temp_filename)
+

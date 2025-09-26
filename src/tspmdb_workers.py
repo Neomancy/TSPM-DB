@@ -281,6 +281,23 @@ def worker_SequenceGeneration_Step_2(maindb, tempdb, mem_limit, temporal_buckets
         temporal_SQL += "END AS temporal_distance"
 
 
+    local_db.execute(f"""
+        CREATE TABLE local_freq (
+            obs_code_1  INTEGER     NOT NULL,
+            obs_code_2  INTEGER     NOT NULL,
+            temporal_distance       INTEGER NOT NULL,
+            observation_cnt         INTEGER NOT NULL DEFAULT 0,
+            patient_cnt             INTEGER NOT NULL DEFAULT 0
+        );
+    """)
+    local_db.execute(f"""
+        CREATE UNIQUE INDEX idx_local_freq ON local_freq (
+            obs_code_1,
+            obs_code_2,
+            temporal_distance
+        );
+    """)
+
 
 
     local_db.execute(f"""
@@ -303,16 +320,14 @@ def worker_SequenceGeneration_Step_2(maindb, tempdb, mem_limit, temporal_buckets
                 obs_2, 
                 dist,
                 SUM(obs_count) AS observation_cnt,
-                COUNT(*) AS patient_cnt
+                COUNT(patient) AS patient_cnt
             FROM bucketed
             GROUP BY
                 obs_1, 
                 obs_2, 
                 dist
         )
-        INSERT INTO source.frequencies (obs_code_1, obs_code_2, temporal_distance, observation_cnt, patient_cnt)
-        SELECT obs_1, obs_2, dist, count_obs, count_patient FROM intermediate WHERE true
-        ON CONFLICT(obs_code_1, obs_code_2, temporal_distance) DO UPDATE 
-        SET observation_cnt = observation_cnt + excluded.observation_cnt, patient_cnt = patient_cnt + excluded.patient_cnt WHERE true;
+        INSERT INTO local_freq (obs_code_1, obs_code_2, temporal_distance, observation_cnt, patient_cnt)
+        SELECT obs_1, obs_2, dist, count_obs, count_patient FROM intermediate;
     """)
     local_db.commit()

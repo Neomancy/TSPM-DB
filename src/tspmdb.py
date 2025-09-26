@@ -11,13 +11,18 @@ from zipfile import ZipFile
 import os
 import tempfile
 
+from DDLFunctions import Create_Base_DB
+from DDLFunctions import Create_SEQUENCES
 from tspmdb_workers import worker_SequenceGeneration
+from Dataset import Dataset
+from Subpopulation import Subpopulation
+from Population import Population
 
 class TspmDB:
     """Core object for DB-based TSPM calculations"""
 
     # ========================================================================================
-    def __init__(self, dbfile, destructive=False, parallel_threads=False, reuse_cache=True, max_memory_mb=512):
+    def __init__(self, dbfile, destructive=False, parallel_threads=False, reuse_cache=False, max_memory_mb=512):
         """create the TSPM database"""
 
         # handle the db file/connection
@@ -48,7 +53,7 @@ class TspmDB:
         self.cache_obs = {}
 
         # create the tables if needed
-        self._create_db(self.conn)
+        Create_Base_DB(self.conn, self.destructive)
 
         # handle cpu usage
         cpu_count = multiprocessing.cpu_count()
@@ -67,156 +72,61 @@ class TspmDB:
                 else:
                     self.max_cpu_core = cpu_count
 
+        # additional setup
+        self._subpopulation = Subpopulation(self)
+        self._dataset = Dataset(self)
+
     # ========================================================================================
-    def close(self):
+    @property
+    def population(self):
+        """ returns a specialized subpopulation object that represents all entries in the database """
+        # TsmpDb.population.identifier
+        # TsmpDb.population.description
+        # TsmpDb.population.help()
+        # TsmpDb.population.patients()
+        # TsmpDb.population.sequences()
+        # TsmpDb.population.frequencies()
+        # TsmpDb.population.events()
+        return Population(self)
+        pass
+
+
+    # ========================================================================================
+    @property
+    def subpopulation(self):
+        """ returns the subpopulation management object """
+        # TsmpDb.subpopulation.list()
+        # TsmpDb.subpopulation.create()
+        # TsmpDb.subpopulation.delete()
+        # TsmpDb.subpopulation.get()
+        return self._subpopulation
+
+    # ========================================================================================
+    @property
+    def dataset(self):
+        """ returns the dataset management object """
+        # TsmpDb.dataset.ingest(cvs=, zipfile=, dataframe=)
+        # TsmpDb.dataset.clear()
+        # TsmpDb.dataset.calculate(temporal_buckets=, sparsity_threshold=)
+        return self._dataset
+
+
+    # ========================================================================================
+    def close(self) -> None:
         self.conn.commit()
         self.conn.close()
 
 
     # ========================================================================================
-    def ingest_csv(self, csvfile: str, colnames: list, zipfile: str = None, batch_size: int = 10000, show_progress: bool = True, rebuild : bool = False):
-        """used to ingest a csv file containing data"""
-        # make sure we have required colnames defined
-        if "PATIENT" not in colnames:
-            raise KeyError
-        if "DATE" not in colnames:
-            raise KeyError
-        if "CODE" not in colnames:
-            raise KeyError
-
-        # handle files and get a csvDictReader running
-        if zipfile is not None:
-            if not os.path.exists(zipfile):
-                raise FileNotFoundError
-            else:
-                data_zip = ZipFile(zipfile, 'r')
-                fp = data_zip.open(csvfile, 'r')
-                csvreader = csv.DictReader(TextIOWrapper(fp, 'utf-8'))
-        else:
-            if not os.path.exists(csvfile):
-                raise FileNotFoundError
-            else:
-                fp = open(csvfile, 'r')
-                csvreader = csv.DictReader(fp)
-                pass
-
-        # got the CSV reader... ingest the data
-        db_cur = self.conn.cursor()
-        lookup_patients_data = {}
-        lookup_codes_data = {}
-        insert_batch = []
-        inserted_row_count = 0
-        patient_num = 0
-        code_num = 0
-
-        # but first make sure expected columns exist
-        if not colnames["PATIENT"] in csvreader.fieldnames:
-            raise KeyError
-        if not colnames["DATE"] in csvreader.fieldnames:
-            raise KeyError
-        if not colnames["CODE"] in csvreader.fieldnames:
-            raise KeyError
-        if not colnames["TEXT"] in csvreader.fieldnames:
-            # the optional TEXT column does not exist in the csv file, do not use it
-            del colnames["TEXT"]
-
-
-        # and load the existing lookup tables' data
-        def load_patient_ids():
-            patient_num = 0
-            results = db_cur.execute("SELECT patient_num, patient_id FROM lookup_patients ORDER BY patient_num ASC")
-            for row in results:
-                temp_num = int(row['patient_num'])
-                self.cache_patients[row['patient_id']] = temp_num
-                patient_num = temp_num
-            return patient_num
-
-        if self.reuse_cache == True:
-            if self.cache_patients is None:
-                patient_num = load_patient_ids()
-        else:
-            self.cache_patients = {}
-            patient_num = load_patient_ids()
-
-        def load_obs_ids():
-            results = db_cur.execute("SELECT obs_code, obs_code_id, obs_description FROM lookup_observations ORDER BY obs_code_id ASC")
-            for row in results:
-                temp_num = int(row['obs_code_id'])
-                self.cache_obs[row['obs_code']] = {
-                    "num": temp_num,
-                    "text": row['obs_description'].split(",\n")
-                }
-                code_num = temp_num
-            return code_num
-
-        if self.reuse_cache == True:
-            if self.cache_obs is None:
-                code_num = load_obs_ids()
-        else:
-            self.cache_obs = {}
-            code_num = load_obs_ids()
-
-        # ingest the data
-        for row in csvreader:
-            # handle patient lookup
-            current_row_patient_data = row[colnames["PATIENT"]]
-            if current_row_patient_data not in self.cache_patients:
-                patient_num += 1
-                current_patients_id = patient_num
-                self.cache_patients[current_row_patient_data] = patient_num
-            else:
-                current_patients_id = self.cache_patients[current_row_patient_data]
-
-            # handle code lookup
-            current_row_code_data = row[colnames["CODE"]]
-            if current_row_code_data not in lookup_codes_data:
-                code_num += 1
-                current_patients_code = code_num
-                lookup_codes_data[current_row_code_data] = {
-                    "num": code_num,
-                    "text": []
-                }
-                if "TEXT" in colnames:
-                    for line in row[colnames["TEXT"]].split(",\n"):
-                        lookup_codes_data[current_row_code_data]["text"].append(line)
-            else:
-                current_patients_code = lookup_codes_data[current_row_code_data]["num"]
-                if "TEXT" in colnames:
-                    current_row_text_data = row[colnames["TEXT"]]
-                    # add the code description if it is not yet saved
-                    if current_row_text_data not in lookup_codes_data[current_row_code_data]["text"]:
-                        lookup_codes_data[current_row_code_data]["text"].append(current_row_text_data)
-
-            # get the observation date
-            current_patients_date = row[colnames["DATE"]]
-
-            # save the entry
-            insert_batch.append((current_patients_id, current_patients_code, current_patients_date))
-            inserted_row_count += 1
-            if len(insert_batch) >= batch_size:
-                db_cur.executemany("INSERT INTO source_data (patient_num, obs_code, obs_date) VALUES (?,?,?)", insert_batch)
-                self.conn.commit()
-                insert_batch = []
-                if show_progress:
-                    print("Inserted row #: " + str(inserted_row_count))
-
-        # commit the last batch of records
-        db_cur.executemany("INSERT INTO source_data (patient_num, obs_code, obs_date) VALUES (?,?,?)", insert_batch)
-        self.conn.commit()
-
-        # save the patient lookup table
-        patient_id_rows = list(self.cache_patients.items())
-        db_cur.executemany("INSERT OR IGNORE INTO lookup_patients (patient_id, patient_num) VALUES (?,?)", patient_id_rows)
-        self.conn.commit()
-
-        # save the code lookup table
-        patient_code_rows = []
-        for code in lookup_codes_data:
-            text_entry = ",\n".join(lookup_codes_data[code]["text"])
-            patient_code_rows.append((lookup_codes_data[code]["num"], code, text_entry))
-        db_cur.executemany("INSERT OR IGNORE INTO lookup_observations (obs_code_id, obs_code, obs_description) VALUES (?,?,?)", patient_code_rows)
-        self.conn.commit()
-
+    def help(self):
+        print("[HELP] Main TspmDb Object")
+        print("tspmdb = TspmDb(dbfile=str, [destructive=boolean, workers=int, max_memory_mb=int])")
+        print("------------------------------------------------------------------------------")
+        print("tspmdb.help()         Displays this help message")
+        print("tspmdb.population     Manage/retreve data of entire population")
+        print("tspmdb.subpopulation  Operations to manage/retrieve subpopulations data")
+        print("tspmdb.dataset        Operations to manage the dataset")
+        print("tspmdb.close()        Close the dataset and release resources")
 
     # ========================================================================================
     def ingest_sqlite(self, dbfile: str, query: str, colnames: dict, batch_size=10000, rebuild : bool = False):
@@ -226,13 +136,13 @@ class TspmDB:
 
 
     # ========================================================================================
-    def generate_sequences_parallel(self, table_name : str = "", rebuild : bool = False):
+    def generate_sequences_parallel(self, table_name: str = "", rebuild: bool = False, sparsity_threshold: float = 0.05):
         table_names = {
             "SEQ": table_name
         }
         if len(table_names["SEQ"]) < 3:
             table_names["SEQ"] = 'seq_optimized'
-        self._create_seq_table(self.conn, table_names["SEQ"])
+        Create_SEQUENCES(self.conn, table_names["SEQ"])
 
         # Refresh our query plan statistics
         self.conn.execute("PRAGMA OPTIMIZE")
@@ -244,9 +154,11 @@ class TspmDB:
         patientlist_queue = multiprocessing.Queue()
         temp_mem_limit = int(self.memory_limit / self.max_cpu_core)
         process_list = []
+        temp_db_list = []
         # for process_id in range(0, 1):
         for process_id in range(1, self.max_cpu_core):
             tempdb = os.path.join(temp_dir, f"seq_gen_{process_id}.sqlite")
+            temp_db_list.append(tempdb)
             p = multiprocessing.Process(target=worker_SequenceGeneration, args=(self.db, tempdb, patientlist_queue, temp_mem_limit, table_names["SEQ"]))
             # process_list.append((self.db, tempdb, patientlist_queue, temp_mem_limit, table_names["SEQ"]))
             process_list.append(p)
@@ -301,7 +213,7 @@ class TspmDB:
         }
         if len(table_names["SEQ"]) < 3:
             table_names["SEQ"] = 'seq_optimized'
-        self._create_seq_table(self.conn, table_names["SEQ"])
+        Create_SEQUENCES(self.conn, table_names["SEQ"])
 
         # handle buckets
         temporal_SQL = "CAST(julianday(t2.occurred_on) - julianday(t1.occurred_on) AS INTEGER) AS time_diff"
@@ -543,75 +455,3 @@ class TspmDB:
             db_conn.commit()
 
     # ----------------------------------------------------------------------------------------
-    def _create_seq_table(self, db_conn, tablename):
-        if not isinstance(db_conn, sqlite3.Connection):
-            raise SyntaxError("database connection was not passed")
-        if len(tablename) < 3:
-            raise SyntaxError("sequence table name is to short")
-
-        cur = db_conn.cursor()
-        cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        tables = [name[0] for name in cur.fetchall()]
-
-        # create table if it is missing
-        if tablename in tables:
-            if self.destructive is not True:
-                raise NameError("sequence table already exists (and destructive option not selected)")
-            else:
-                cur.execute(f"DELETE FROM {tablename};")
-                cur.execute(f"DROP INDEX IF EXISTS {tablename};")
-        else:
-            cur.execute(f"""
-                CREATE TABLE {tablename} (
-                    patient_num INTEGER     NOT NULL,
-                    obs_code_1  INTEGER     NOT NULL,
-                    obs_code_2  INTEGER     NOT NULL,
-                    temporal_distance   INTEGER NOT NULL
-                );
-            """)
-        db_conn.commit()
-
-    # ----------------------------------------------------------------------------------------
-    def _create_db(self, db_conn):
-        if not isinstance(db_conn, sqlite3.Connection):
-            raise SyntaxError("database connection was not passed")
-
-        cur = db_conn.cursor()
-        cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        tables = [name[0] for name in cur.fetchall()]
-
-        if "lookup_patients" not in tables:
-            cur.execute("""
-                CREATE TABLE lookup_patients (
-                    patient_num INTEGER PRIMARY KEY,
-                    patient_id  TEXT    UNIQUE NOT NULL
-                );
-            """)
-            db_conn.commit()
-
-        if "lookup_observations" not in tables:
-            cur.execute("""
-                CREATE TABLE lookup_observations (
-                    obs_code_id     INTEGER PRIMARY KEY,
-                    obs_code        TEXT    UNIQUE NOT NULL,
-                    obs_description TEXT
-                );
-            """)
-            db_conn.commit()
-
-        if "source_data" not in tables:
-            cur.execute("""
-                CREATE TABLE source_data (
-                    patient_num INTEGER NOT NULL,
-                    obs_code    INTEGER NOT NULL,
-                    obs_date    DATE    NOT NULL
-                );
-            """)
-            cur.execute("""
-                CREATE INDEX idx_source_data ON source_data (
-                    patient_num ASC,
-                    obs_code ASC,
-                    obs_date ASC
-                );
-            """)
-            db_conn.commit()

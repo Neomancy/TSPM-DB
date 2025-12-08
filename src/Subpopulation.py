@@ -47,7 +47,7 @@ class Subpopulation:
                     patient_num = cur.lastrowid
                 insert_list.append((subpop_num, patient_num))
             # insert list of passed patients
-            cur.executemany("INSERT INTO subpopulation_patients (subpop_num, patient_id) VALUES (?, ?)", insert_list)
+            cur.executemany("INSERT INTO subpopulation_patients (subpop_num, patient_num) VALUES (?, ?)", insert_list)
         self.tspmdb.conn.commit()
 
         return SubpopulationInstance(self.tspmdb, subpop_num)

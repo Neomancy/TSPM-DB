@@ -40,7 +40,7 @@ class SubpopulationInstance:
 
     @property
     def patients(self):
-        return self._ref_instance_patients;
+        return self._ref_instance_patients
 
     def sequences(self):
         pass

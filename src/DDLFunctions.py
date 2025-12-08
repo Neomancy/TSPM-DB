@@ -153,7 +153,8 @@ def Create_SEQUENCES(db_conn, destructive:bool = False):
                 patient_num INTEGER     NOT NULL,
                 obs_code_1  INTEGER     NOT NULL,
                 obs_code_2  INTEGER     NOT NULL,
-                temporal_distance   INTEGER NOT NULL
+                temporal_distance   INTEGER NOT NULL,
+                occurrence_count      INTEGER NOT NULL DEFAULT 1
             );
         """)
     db_conn.commit()

@@ -75,14 +75,14 @@ def test_ingest_csv_file_missing():
     # create object - don't overwrite db file explicit
     test_obj = tspmdb.TspmDB(temp_filename, destructive=True)
     # ingest non-existent zip file
-    with pytest.raises(FileNotFoundError):
+    with (pytest.raises(FileNotFoundError)):
         col_names = {
             "PATIENT": "PatientID",
             "DATE": "ObservationDate",
             "CODE": "ObservationCode",
             "TEXT": "Description"
         }
-        test_obj.ingest_csv("non-existent.csv", col_names)
+        test_obj.dataset.ingest("non-existent.csv", col_names)
     # cleanup
     test_obj.close()
     os.remove(temp_filename)
@@ -102,7 +102,7 @@ def test_ingest_csv_zip_file_missing():
             "CODE": "ObservationCode",
             "TEXT": "Description"
         }
-        test_obj.ingest_csv("test_data.csv", col_names, zipfile="./non-existent.zip")
+        test_obj.dataset.ingest("test_data.csv", col_names, zip_file="./non-existent.zip")
     # cleanup
     test_obj.close()
     os.remove(temp_filename)
@@ -120,7 +120,7 @@ def test_ingest_csv_not_in_zip():
             "CODE": "ObservationCode",
             "TEXT": "Description"
         }
-        test_obj.ingest_csv("non-existent.csv", col_names, zipfile="./test_data.zip")
+        test_obj.dataset.ingest("non-existent.csv", col_names, zip_file="./test_data.zip")
     # cleanup
     test_obj.close()
     os.remove(temp_filename)
@@ -137,7 +137,7 @@ def test_ingest_csv_in_zip():
         "CODE": "ObservationCode",
         "TEXT": "Description"
     }
-    test_obj.ingest_csv("test_data.csv", col_names, zipfile="./test_data.zip")
+    test_obj.dataset.ingest("test_data.csv", col_names, zip_file="./test_data.zip")
 
     # TODO: See if correct records are in the table
 
@@ -158,7 +158,7 @@ def test_ingest_csv_missing_colnames():
             "CODE": "ObservationCode",
             "TEXT": "Description"
         }
-        test_obj.ingest_csv("test_data.csv", col_names)
+        test_obj.dataset.ingest("test_data.csv", col_names)
     with pytest.raises(KeyError):
         col_names = {
             "PATIENT": "PatientID",
@@ -166,7 +166,7 @@ def test_ingest_csv_missing_colnames():
             "CODE": "ObservationCode",
             "TEXT": "Description"
         }
-        test_obj.ingest_csv("test_data.csv", col_names)
+        test_obj.dataset.ingest("test_data.csv", col_names)
     with pytest.raises(KeyError):
         col_names = {
             "PATIENT": "PatientID",
@@ -174,7 +174,7 @@ def test_ingest_csv_missing_colnames():
             "missing_CODE": "ObservationCode",
             "TEXT": "Description"
         }
-        test_obj.ingest_csv("test_data.csv", col_names)
+        test_obj.dataset.ingest("test_data.csv", col_names)
     # cleanup
     test_obj.close()
     os.remove(temp_filename)
@@ -195,8 +195,10 @@ def test_sequence_generation():
         "CODE": "ObservationCode",
         "TEXT": "Description"
     }
-    test_obj.ingest_csv("test_data.csv", col_names)
+    test_obj.dataset.ingest("test_data.csv", col_names)
+    # test_obj.dataset.calculate()
     test_obj.generate_sequences()
+
 
     # confirm data
     # with sqlite3.connect(temp_filename) as con:
@@ -283,6 +285,8 @@ def test_INGEST_35k_DATA():
 
 
 def test_INGEST_ALL_THE_DATA():
+
+    return False
 
     ZIPFILE = "D:/RESEARCH/TSPM+/test_data/100k_synthea_covid19_csv.zip"
 

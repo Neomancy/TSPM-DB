@@ -133,6 +133,7 @@ def worker_SequenceGeneration(maindb, tempdb, ingestQueue, mem_limit):
                 break
             # print(f"Worker {multiprocessing.current_process().name} received ids [{patient_list[0]}-{patient_list[len(patient_list)-1]}")
             for patient_num in patient_list:
+                # TODO: fix this to use a DAY/HOUR parameter instead of hardcoding the by-day for time differences
                 local_db.execute(f"""
                 INSERT INTO local_seq (patient_num, obs_code_1, obs_code_2, temporal_distance)
                    WITH subquery (patient, code, occurred_on) AS (
@@ -208,7 +209,8 @@ def worker_SequenceGeneration_Step_1(maindb, tempdb, ingestQueue, mem_limit, tem
             patient_num         INTEGER NOT NULL,
             obs_code_1          INTEGER NOT NULL,
             obs_code_2          INTEGER NOT NULL,
-            temporal_distance   INTEGER NOT NULL
+            temporal_distance   INTEGER NOT NULL,
+            deleted             BOOLEAN NOT NULL DEFAULT FALSE
         );
     """)
     local_db.commit()
@@ -222,6 +224,9 @@ def worker_SequenceGeneration_Step_1(maindb, tempdb, ingestQueue, mem_limit, tem
                 break
             # print(f"Worker {multiprocessing.current_process().name} received ids [{patient_list[0]}-{patient_list[len(patient_list)-1]}")
             for patient_num in patient_list:
+                # TODO: make this generate and pass the number of sequence occurrences at the patient level instead
+                #  of using the SELECT DISTINCT optimization it is currently doing
+                # TODO: fix this to use a DAY/HOUR parameter instead of hardcoding the by-day for time differences
                 local_db.execute(f"""
                 INSERT INTO local_seq (patient_num, obs_code_1, obs_code_2, temporal_distance)
                    WITH subquery (patient, code, occurred_on) AS (
@@ -266,7 +271,6 @@ def worker_SequenceGeneration_Step_2(maindb, tempdb, mem_limit, temporal_buckets
     # local_db.execute("PRAGMA source.journal_mode=WAL")
     # local_db.execute("PRAGMA source.journal_size_limit = 6144000")
 
-
     # create temporal buckets
     if len(temporal_buckets) == 0:
         temporal_SQL = "temporal_distance"
@@ -279,25 +283,6 @@ def worker_SequenceGeneration_Step_2(maindb, tempdb, mem_limit, temporal_buckets
                 bucket_num) + "\n"
         temporal_SQL += "ELSE 0\n"
         temporal_SQL += "END AS temporal_distance"
-
-
-    local_db.execute(f"""
-        CREATE TABLE local_freq (
-            obs_code_1  INTEGER     NOT NULL,
-            obs_code_2  INTEGER     NOT NULL,
-            temporal_distance       INTEGER NOT NULL,
-            observation_cnt         INTEGER NOT NULL DEFAULT 0,
-            patient_cnt             INTEGER NOT NULL DEFAULT 0
-        );
-    """)
-    local_db.execute(f"""
-        CREATE UNIQUE INDEX idx_local_freq ON local_freq (
-            obs_code_1,
-            obs_code_2,
-            temporal_distance
-        );
-    """)
-
 
 
     local_db.execute(f"""
@@ -320,14 +305,73 @@ def worker_SequenceGeneration_Step_2(maindb, tempdb, mem_limit, temporal_buckets
                 obs_2, 
                 dist,
                 SUM(obs_count) AS observation_cnt,
-                COUNT(patient) AS patient_cnt
+                COUNT(DISTINCT patient) AS patient_cnt
             FROM bucketed
             GROUP BY
                 obs_1, 
                 obs_2, 
                 dist
         )
-        INSERT INTO local_freq (obs_code_1, obs_code_2, temporal_distance, observation_cnt, patient_cnt)
-        SELECT obs_1, obs_2, dist, count_obs, count_patient FROM intermediate;
+        INSERT INTO source.frequencies (obs_code_1, obs_code_2, temporal_distance, observation_cnt, patient_cnt)
+        SELECT obs_1, obs_2, dist, count_obs, count_patient FROM intermediate WHERE true
+        ON CONFLICT(obs_code_1, obs_code_2, temporal_distance) DO UPDATE 
+        SET observation_cnt = observation_cnt + excluded.observation_cnt, patient_cnt = patient_cnt + excluded.patient_cnt;
+    """)
+    local_db.commit()
+
+
+def worker_SequenceGeneration_Step_3(maindb, tempdb, mem_limit, sparcity_limit, total_patients):
+    """ this step updates the seq_sparsity table in the master database """
+    # connect to our temporary db (per process)
+    local_db = sqlite3.connect(tempdb, timeout=60000)
+    local_db.execute("PRAGMA locking_mode=NORMAL")
+    local_db.execute("PRAGMA synchronous=OFF")
+    local_db.execute("PRAGMA journal_mode=MEMORY")
+    local_db.execute("PRAGMA temp_store=FILE")
+    local_db.execute("PRAGMA page_size=4096")  # 4k page size (usually an SSD's block size)
+    local_db.execute("PRAGMA cache_size=" + str(int(mem_limit / 4096)))  # cache is in number of DB pages
+
+    # connect to the main db
+    local_db.execute(f"ATTACH DATABASE '{maindb}' AS source;")
+    local_db.execute("PRAGMA source.cache_size=" + str(int(mem_limit / 4096)))  # cache is in number of DB pages
+    local_db.execute("PRAGMA source.locking_mode=NORMAL")
+    local_db.execute("PRAGMA source.synchronous=OFF")
+    local_db.execute("PRAGMA source.journal_mode=OFF")
+    # local_db.execute("PRAGMA source.journal_mode=WAL")
+    # local_db.execute("PRAGMA source.journal_size_limit = 6144000")
+
+
+# """
+#         UPDATE local_seq SET deleted = TRUE WHERE obs_code_1 || "-" || obs_code_2 || "-" || temporal_distance IN (
+#             SELECT obs_code_1 || "-" || obs_code_2 || "-" || temporal_distance
+#             FROM source.frequencies
+#             WHERE CAST(patient_cnt AS float) / {total_patients} >= {sparcity_limit})
+#         );
+# """
+    # mark the sparse sequences for deletion based on our centralized statistics and sparcity limit
+    local_db.execute(f"""
+            UPDATE local_seq SET deleted = TRUE WHERE EXISTS (
+            SELECT 1 FROM source.frequencies AS lookup
+            WHERE 
+                lookup.obs_code_1 = local_seq.obs_code_1 AND
+                lookup.obs_code_2 = local_seq.obs_code_2 AND
+                lookup.temporal_distance = local_seq.temporal_distance AND            
+                CAST(lookup.patient_cnt AS float) / {total_patients} >= {sparcity_limit});
+    """)
+    local_db.commit()
+
+    # copy the sequences of interest back to the main db
+    # - this does not need an UPSERT because all patient_num records are processed only in the current thread
+    # TODO: update this to use the occurrence count from the local_seq table instead of harcdoding it to 1
+    local_db.execute(f"""
+        INSERT INTO source.sequences (patient_num, obs_code_1, obs_code_2, temporal_distance, occurrence_count)
+        SELECT 
+            patient_num, 
+            obs_code_1, 
+            obs_code_2, 
+            temporal_distance,
+            1 AS occurrence_count
+        FROM local_seq
+        WHERE deleted = FALSE;
     """)
     local_db.commit()

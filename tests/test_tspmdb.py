@@ -219,44 +219,36 @@ def test_seqgen_temporal_bucket():
 
 def test_INGEST_35k_DATA():
 
-    return True
+    # return False
 
-    ZIPFILE = "D:/RESEARCH/TSPM+/test_data/100k_synthea_covid19_csv.zip"
+    ZIPFILE = "D:/RESEARCH/TSPM+/test_data/COVID_35k_subset.zip"
 
     import time
     temp_dir = tempfile.gettempdir()
     temp_filename = os.path.join(temp_dir, "actual_35k_tspmdb.sqlite3")
     # create object - don't overwrite db file explicit
-    test_obj = tspmdb.TspmDB(temp_filename, destructive=False, parallel_threads=8)
+    test_obj = tspmdb.TspmDB(temp_filename, destructive=True, parallel_threads=8)
 
 
-    # col_names = {
-    #     "PATIENT": "patient_id",
-    #     "DATE": "obs_date",
-    #     "CODE": "obs_code",
-    #     "TEXT": "obs_description"
-    # }
-    # ingest_start = time.perf_counter()
-    # test_obj.ingest_csv("D:/RESEARCH/TSPM+/test_data/COVID_35k_subset.csv", col_names, show_progress=False)
-    # ingest_end = time.perf_counter()
-    # elapsed = ingest_end - ingest_start
+    col_names = {
+        "PATIENT": "patient_id",
+        "DATE": "obs_date",
+        "CODE": "obs_code",
+        "TEXT": "obs_description"
+    }
+    ingest_start = time.perf_counter()
+    test_obj.dataset.ingest("COVID_35k_subset.csv", col_names, zip_file=ZIPFILE)
+    ingest_end = time.perf_counter()
+    elapsed = ingest_end - ingest_start
 
     timings = []
-    # timings.append(f"Ingest Time: {elapsed:0.4f} seconds")
+    timings.append(f"Ingest Time: {elapsed:0.4f} seconds")
 
     ingest_start = time.perf_counter()
-    test_obj.generate_sequences_parallel(table_name="seq_optimized_parallel")
+    test_obj.dataset.calculate()
     ingest_end = time.perf_counter()
     elapsed = ingest_end - ingest_start
     timings.append(f"Generate Time: {elapsed:0.4f} seconds")
-
-
-    # ingest_start = time.perf_counter()
-    # test_obj.get_sequence_frequencies()
-    # ingest_end = time.perf_counter()
-    # elapsed = ingest_end - ingest_start
-    # timings.append(f"Freq Generate Time: {elapsed:0.4f} seconds")
-
 
     # bucket_config = [
     #     (0, 1),

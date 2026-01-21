@@ -10,8 +10,8 @@ from io import TextIOWrapper
 from pathlib import Path, PurePath
 
 import tspmdb
-from tspmdb_workers import worker_SequenceGeneration_Step_1, worker_SequenceGeneration_Step_2
-from DDLFunctions import Create_SEQUENCES, Create_FREQUENCIES, Create_Base_DB
+from tspmdb_workers import worker_SequenceGeneration_Step_1, worker_SequenceGeneration_Step_2, worker_SequenceGeneration_Step_3
+from DDLFunctions import Create_SEQUENCES, Index_SEQUENCES, Create_FREQUENCIES, Create_Base_DB
 
 class Dataset:
 
@@ -101,7 +101,6 @@ class Dataset:
             tempdb = str(tempdb)
             temp_db_list.append(tempdb)
             p = multiprocessing.Process(target=worker_SequenceGeneration_Step_1, args=(self.db, tempdb, patientlist_queue, temp_mem_limit, temporal_buckets))
-            # process_list.append((self.db, tempdb, patientlist_queue, temp_mem_limit, table_names["SEQ"]))
             process_list.append(p)
 
         # populate the queue
@@ -123,7 +122,6 @@ class Dataset:
         # start the processes
         for proc in process_list:
             proc.start()
-
         # wait for the processes to finish
         for proc in process_list:
             proc.join()
@@ -131,25 +129,44 @@ class Dataset:
 
         # close the queue and cleanup
         patientlist_queue.close()
+
+        # --- [SUM THE FREQUENCIES ACROSS ALL TEMP DBs] -----------------------------------------------------
         process_list = []
-
-        # --- [CREATE FREQUENCIES] -----------------------------------------------------
         for tempdb in temp_db_list:
-            # p = multiprocessing.Process(target=worker_SequenceGeneration_Step_2, args=(self.db, tempdb, temp_mem_limit, temporal_buckets))
-            # process_list.append(p)
-            worker_SequenceGeneration_Step_2(self.db, tempdb, temp_mem_limit, temporal_buckets)
+            p = multiprocessing.Process(target=worker_SequenceGeneration_Step_2, args=(self.db, tempdb, temp_mem_limit, temporal_buckets))
+            process_list.append(p)
 
-        # # start the processes
-        # for proc in process_list:
-        #     proc.start()
-        #
-        # # wait for the processes to finish
-        # for proc in process_list:
-        #     proc.join()
-        #     proc.close()
+        # start the processes
+        for proc in process_list:
+            proc.start()
+        # wait for the processes to finish
+        for proc in process_list:
+            proc.join()
+            proc.close()
 
-        # --- [COPY OVER THE SEQUENCES OF INTEREST] -----------------------------------------------------
+        # --- [COPY OVER THE SEQUENCES OF INTEREST (as determined by the sparsity threshold)] -----------------------------------------------------
+        process_list = []
+        for tempdb in temp_db_list:
+            p = multiprocessing.Process(target=worker_SequenceGeneration_Step_3, args=(self.db, tempdb, temp_mem_limit, sparsity_threshold, total_patients))
+            process_list.append(p)
 
+        # start the processes
+        for proc in process_list:
+            proc.start()
+        # wait for the processes to finish
+        for proc in process_list:
+            proc.join()
+            proc.close()
+
+        # --- [CLEAN UP THE TEMPORARY DATABASES] -----------------------------------------------------
+        for tempdb in temp_db_list:
+            os.remove(tempdb)
+
+        # --- [CREATE THE INDEX ON THE SEQUENCES TABLE] -----------------------------------------------------
+        Index_SEQUENCES(self.conn)
+
+        # Refresh our query plan statistics
+        self.conn.execute("PRAGMA OPTIMIZE")
 
 
     # ========================================================================================

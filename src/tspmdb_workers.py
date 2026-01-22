@@ -355,8 +355,8 @@ def worker_SequenceGeneration_Step_3(maindb, tempdb, mem_limit, sparcity_limit, 
             WHERE 
                 lookup.obs_code_1 = local_seq.obs_code_1 AND
                 lookup.obs_code_2 = local_seq.obs_code_2 AND
-                lookup.temporal_distance = local_seq.temporal_distance AND            
-                CAST(lookup.patient_cnt AS float) / {total_patients} >= {sparcity_limit});
+                lookup.temporal_distance = local_seq.temporal_distance
+            );
     """)
     local_db.commit()
 

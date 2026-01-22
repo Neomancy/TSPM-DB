@@ -105,7 +105,7 @@ class Dataset:
 
         # populate the queue
         cur = self.conn.cursor()
-        cur.execute("SELECT patient_num FROM lookup_patients LIMIT 100")
+        cur.execute("SELECT patient_num FROM lookup_patients ORDER BY patient_num ASC")
         id_list = []
         while True:
             patient_ids = cur.fetchmany(1000)
@@ -144,7 +144,14 @@ class Dataset:
             proc.join()
             proc.close()
 
-        # --- [COPY OVER THE SEQUENCES OF INTEREST (as determined by the sparsity threshold)] -----------------------------------------------------
+        # --- [FILTER THE FREQUENCIES IN THE MAIN DB BY SPARSITY] -----------------------------------------------------
+        cur.execute(f"""
+            DELETE FROM frequencies 
+            WHERE CAST(patient_cnt AS float) / {total_patients} < {sparsity_threshold}
+        """)
+        self.conn.commit()
+
+        # --- [COPY OVER THE SEQUENCES OF INTEREST (as determined by the sparsity threshold)] --------------------------
         process_list = []
         for tempdb in temp_db_list:
             p = multiprocessing.Process(target=worker_SequenceGeneration_Step_3, args=(self.db, tempdb, temp_mem_limit, sparsity_threshold, total_patients))

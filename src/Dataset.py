@@ -51,7 +51,7 @@ class Dataset:
         self.cache_obs = None
 
     # ========================================================================================
-    def ingest(self, data, col_names: list, zip_file: str = None):
+    def ingest(self, data, col_names: list, zip_file: str = None, show_progress: bool = True):
         """ Ingests data from CSV/ZIP+CSV files """
         if isinstance(data, DataFrame):
             # a DataFrame was passed as data
@@ -59,9 +59,9 @@ class Dataset:
         else:
             # we are assuming that a filename was passed as an input
             if zip_file is None:
-                self._ingest_csv(data, col_names)
+                self._ingest_csv(data, col_names, show_progress=show_progress)
             else:
-                self._ingest_csv(data, col_names, zip_file)
+                self._ingest_csv(data, col_names, zip_file, show_progress=show_progress)
 
 
     # ========================================================================================

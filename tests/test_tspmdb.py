@@ -237,7 +237,7 @@ def test_INGEST_35k_DATA():
         "TEXT": "obs_description"
     }
     ingest_start = time.perf_counter()
-    test_obj.dataset.ingest("COVID_35k_subset.csv", col_names, zip_file=ZIPFILE)
+    test_obj.dataset.ingest("COVID_35k_subset.csv", col_names, zip_file=ZIPFILE, show_progress=False)
     ingest_end = time.perf_counter()
     elapsed = ingest_end - ingest_start
 

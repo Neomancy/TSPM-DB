@@ -7,7 +7,7 @@ class SubpopulationInstance:
         self._parent = tspmdb_ref
         self._identifier = identifier
         self._description = description
-        self._ref_instance_patients = SubpopulationInstancePatients(self._parent)
+        self._ref_instance_patients = SubpopulationInstancePatients(tspmdb_ref, self)
 
     @property
     def identifier(self):
@@ -29,7 +29,7 @@ class SubpopulationInstance:
         print(" .patients.get()                        Get a single patient from the subpopulation")
         print(" .patients.event_counts()               List all patients in the subpopulation with their number of events")
         print(" .sequences.list(sparcity_level)        List of unique sequences in the subpopulation along with the number of patients who have it")
-        print(" .sequences.get_counts(sparcity_level)  Gets a list of sequence occurance frequencies ")
+        print(" .sequences.get_frequencies(sparcity_level)  Gets a list of sequence occurrance frequencies")
         # print(" .sequences.get_date_range()   ")
         #        print(" .sequences.get_dates(sparcity_level=0.05)   ")
         #        patient1, obs_1, obs_1_date, obs_2, obs_2_date

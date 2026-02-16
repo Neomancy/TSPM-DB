@@ -47,6 +47,7 @@ class Dataset:
         self.conn.execute('DROP TABLE IF EXISTS subpopulation_patients;')
         self.conn.execute('DROP TABLE IF EXISTS seq_optimized;')
         Create_Base_DB(self.conn, destructive=self.destructive)
+        self.conn.execute("PRAGMA OPTIMIZE")
         self.cache_patients = None
         self.cache_obs = None
 

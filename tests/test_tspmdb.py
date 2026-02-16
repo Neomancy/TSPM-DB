@@ -1,9 +1,10 @@
 import pytest
 
-import tspmdb
 import tempfile
 import os.path
 import sqlite3
+
+import tspmdb
 
 def test_initialization_nofile():
     with pytest.raises(Exception):

@@ -8,6 +8,7 @@ class SubpopulationInstance:
         self._identifier = identifier
         self._description = description
         self._ref_instance_patients = SubpopulationInstancePatients(tspmdb_ref, self)
+        self._ref_instance_sequences = SubpopulationInstanceSequences(tspmdb_ref, self)
 
     @property
     def identifier(self):
@@ -42,13 +43,10 @@ class SubpopulationInstance:
     def patients(self):
         return self._ref_instance_patients
 
+    @property
     def sequences(self):
-        pass
+        return self._ref_instance_sequences
 
-
-    def get_sequences(self, no_id_translation: bool = False, as_pandas: bool = True, include_actual_duration=False):
-        pass
-
-    def get_frequencies(self, observation=False, no_id_translation: bool = False, as_pandas: bool = True):
-        """ gets the frequencies of all event sequences for the subpopulation """
-        pass
+    # def get_frequencies(self, observation=False, no_id_translation: bool = False, as_pandas: bool = True):
+    #     """ gets the frequencies of all event sequences for the subpopulation """
+    #     pass

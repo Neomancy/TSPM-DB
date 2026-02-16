@@ -6,7 +6,7 @@ from pandas import DataFrame
 class Population:
     def __init__(self, tspmdb_ref):
         self._parent = tspmdb_ref
-        pass
+
 
     def help(self):
         print("[HELP] tspmdb.Population Object")

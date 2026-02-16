@@ -348,17 +348,17 @@ def worker_SequenceGeneration_Step_3(maindb, tempdb, mem_limit, sparcity_limit, 
 #             WHERE CAST(patient_cnt AS float) / {total_patients} >= {sparcity_limit})
 #         );
 # """
-    # mark the sparse sequences for deletion based on our centralized statistics and sparcity limit
-    local_db.execute(f"""
-            UPDATE local_seq SET deleted = TRUE WHERE EXISTS (
-            SELECT 1 FROM source.frequencies AS lookup
-            WHERE 
-                lookup.obs_code_1 = local_seq.obs_code_1 AND
-                lookup.obs_code_2 = local_seq.obs_code_2 AND
-                lookup.temporal_distance = local_seq.temporal_distance
-            );
-    """)
-    local_db.commit()
+#     # mark the sparse sequences for deletion based on our centralized statistics and sparcity limit
+#     local_db.execute(f"""
+#             UPDATE local_seq SET deleted = TRUE WHERE EXISTS (
+#             SELECT 1 FROM source.frequencies AS lookup
+#             WHERE
+#                 lookup.obs_code_1 = local_seq.obs_code_1 AND
+#                 lookup.obs_code_2 = local_seq.obs_code_2 AND
+#                 lookup.temporal_distance = local_seq.temporal_distance
+#             );
+#     """)
+#     local_db.commit()
 
     # copy the sequences of interest back to the main db
     # - this does not need an UPSERT because all patient_num records are processed only in the current thread
@@ -372,6 +372,12 @@ def worker_SequenceGeneration_Step_3(maindb, tempdb, mem_limit, sparcity_limit, 
             temporal_distance,
             1 AS occurrence_count
         FROM local_seq
-        WHERE deleted = FALSE;
+        WHERE EXISTS (
+            SELECT 1 FROM source.frequencies AS lookup
+            WHERE 
+                lookup.obs_code_1 = local_seq.obs_code_1 AND
+                lookup.obs_code_2 = local_seq.obs_code_2 AND
+                lookup.temporal_distance = local_seq.temporal_distance
+            );
     """)
     local_db.commit()

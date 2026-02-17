@@ -374,3 +374,290 @@ class TestPopulationSequences:
         # Verify iterator yields nothing
         count = sum(1 for _ in sequences_iter)
         assert count == 0
+
+
+class TestPopulationFrequencies:
+    """Tests for the Population.frequencies() method"""
+
+    @pytest.fixture
+    def setup_db(self):
+        """Create a temporary database with test data and frequencies"""
+        temp_dir = tempfile.gettempdir()
+        temp_filename = os.path.join(temp_dir, "test_population_frequencies.sqlite3")
+
+        # Delete temp file if it exists
+        if os.path.exists(temp_filename):
+            os.remove(temp_filename)
+
+        # Create the database and ingest test data
+        test_obj = tspmdb.TspmDB(temp_filename, destructive=True)
+        col_names = {
+            "PATIENT": "PatientID",
+            "DATE": "ObservationDate",
+            "CODE": "ObservationCode",
+            "TEXT": "Description"
+        }
+        test_obj.dataset.ingest("test_data.csv", col_names)
+
+        yield test_obj, temp_filename
+
+        # Cleanup
+        test_obj.close()
+        if os.path.exists(temp_filename):
+            os.remove(temp_filename)
+
+    def test_frequencies_returns_list_by_default(self, setup_db):
+        """Test that frequencies() returns a list by default"""
+        test_obj, temp_filename = setup_db
+
+        frequencies = test_obj.population.frequencies()
+
+        # Verify it returns a list
+        assert isinstance(frequencies, list)
+
+    def test_frequencies_returns_pandas_dataframe(self, setup_db):
+        """Test that frequencies(as_pandas=True) returns a DataFrame"""
+        test_obj, temp_filename = setup_db
+
+        frequencies_df = test_obj.population.frequencies(as_pandas=True)
+
+        # Verify it returns a DataFrame
+        assert isinstance(frequencies_df, pd.DataFrame)
+        # Verify it has the correct columns
+        assert "obs_code_1" in frequencies_df.columns
+        assert "obs_code_2" in frequencies_df.columns
+        assert "temporal_distance" in frequencies_df.columns
+        assert "observation_cnt" in frequencies_df.columns
+        assert "patient_cnt" in frequencies_df.columns
+
+    def test_frequencies_list_contains_correct_keys(self, setup_db):
+        """Test that frequencies list contains dictionaries with correct keys"""
+        test_obj, temp_filename = setup_db
+
+        frequencies = test_obj.population.frequencies()
+
+        # If there are frequencies, verify they have the correct keys
+        if len(frequencies) > 0:
+            for freq in frequencies:
+                assert "obs_code_1" in freq
+                assert "obs_code_2" in freq
+                assert "temporal_distance" in freq
+                assert "observation_cnt" in freq
+                assert "patient_cnt" in freq
+
+    def test_frequencies_obs_codes_are_strings_by_default(self, setup_db):
+        """Test that obs_code_1 and obs_code_2 are strings when with_ids=False"""
+        test_obj, temp_filename = setup_db
+
+        frequencies = test_obj.population.frequencies()
+
+        # If there are frequencies, verify obs_codes are strings
+        if len(frequencies) > 0:
+            for freq in frequencies:
+                assert isinstance(freq["obs_code_1"], str)
+                assert isinstance(freq["obs_code_2"], str)
+
+    def test_frequencies_with_ids_returns_integers(self, setup_db):
+        """Test that obs_code_1 and obs_code_2 are integers when with_ids=True"""
+        test_obj, temp_filename = setup_db
+
+        frequencies = test_obj.population.frequencies(with_ids=True)
+
+        # If there are frequencies, verify obs_codes are integers
+        if len(frequencies) > 0:
+            for freq in frequencies:
+                assert isinstance(freq["obs_code_1"], int)
+                assert isinstance(freq["obs_code_2"], int)
+
+    def test_frequencies_as_iterator_returns_generator(self, setup_db):
+        """Test that frequencies(as_iterator=True) returns a generator"""
+        test_obj, temp_filename = setup_db
+
+        frequencies_iter = test_obj.population.frequencies(as_iterator=True)
+
+        # Verify it returns a generator/iterator
+        import types
+        assert isinstance(frequencies_iter, types.GeneratorType)
+
+    def test_frequencies_as_iterator_yields_correct_keys(self, setup_db):
+        """Test that frequencies iterator yields dictionaries with correct keys"""
+        test_obj, temp_filename = setup_db
+
+        frequencies_iter = test_obj.population.frequencies(as_iterator=True)
+
+        # Consume the iterator and verify the items have correct keys
+        for freq in frequencies_iter:
+            assert "obs_code_1" in freq
+            assert "obs_code_2" in freq
+            assert "temporal_distance" in freq
+            assert "observation_cnt" in freq
+            assert "patient_cnt" in freq
+
+    def test_frequencies_filter_by_observation1_string(self, setup_db):
+        """Test filtering frequencies by a single observation1 string"""
+        test_obj, temp_filename = setup_db
+
+        # Get all observation codes
+        cur = test_obj.conn.cursor()
+        cur.execute("SELECT obs_code FROM lookup_observations LIMIT 1")
+        result = cur.fetchone()
+        if result is None:
+            pytest.skip("No observation codes in database")
+        obs_code = result[0]
+
+        frequencies = test_obj.population.frequencies(observation1=obs_code)
+
+        # Verify all results have the specified obs_code_1
+        for freq in frequencies:
+            assert freq["obs_code_1"] == obs_code
+
+    def test_frequencies_filter_by_observation2_string(self, setup_db):
+        """Test filtering frequencies by a single observation2 string"""
+        test_obj, temp_filename = setup_db
+
+        # Get all observation codes
+        cur = test_obj.conn.cursor()
+        cur.execute("SELECT obs_code FROM lookup_observations LIMIT 1")
+        result = cur.fetchone()
+        if result is None:
+            pytest.skip("No observation codes in database")
+        obs_code = result[0]
+
+        frequencies = test_obj.population.frequencies(observation2=obs_code)
+
+        # Verify all results have the specified obs_code_2
+        for freq in frequencies:
+            assert freq["obs_code_2"] == obs_code
+
+    def test_frequencies_filter_by_observation1_list(self, setup_db):
+        """Test filtering frequencies by a list of observation1 codes"""
+        test_obj, temp_filename = setup_db
+
+        # Get observation codes
+        cur = test_obj.conn.cursor()
+        cur.execute("SELECT obs_code FROM lookup_observations LIMIT 2")
+        results = cur.fetchall()
+        if len(results) < 2:
+            pytest.skip("Not enough observation codes in database")
+        obs_codes = [row[0] for row in results]
+
+        frequencies = test_obj.population.frequencies(observation1=obs_codes)
+
+        # Verify all results have obs_code_1 in the specified list
+        for freq in frequencies:
+            assert freq["obs_code_1"] in obs_codes
+
+    def test_frequencies_filter_by_both_observations(self, setup_db):
+        """Test filtering frequencies by both observation1 and observation2"""
+        test_obj, temp_filename = setup_db
+
+        # Get observation codes
+        cur = test_obj.conn.cursor()
+        cur.execute("SELECT obs_code FROM lookup_observations LIMIT 2")
+        results = cur.fetchall()
+        if len(results) < 2:
+            pytest.skip("Not enough observation codes in database")
+        obs_code_1 = results[0][0]
+        obs_code_2 = results[1][0]
+
+        frequencies = test_obj.population.frequencies(observation1=obs_code_1, observation2=obs_code_2)
+
+        # Verify all results match both filters
+        for freq in frequencies:
+            assert freq["obs_code_1"] == obs_code_1
+            assert freq["obs_code_2"] == obs_code_2
+
+    def test_frequencies_invalid_observation1_raises_keyerror(self, setup_db):
+        """Test that invalid observation1 code raises KeyError"""
+        test_obj, temp_filename = setup_db
+
+        with pytest.raises(KeyError) as excinfo:
+            test_obj.population.frequencies(observation1="NONEXISTENT_CODE")
+
+        assert "NONEXISTENT_CODE" in str(excinfo.value)
+
+    def test_frequencies_invalid_observation2_raises_keyerror(self, setup_db):
+        """Test that invalid observation2 code raises KeyError"""
+        test_obj, temp_filename = setup_db
+
+        with pytest.raises(KeyError) as excinfo:
+            test_obj.population.frequencies(observation2="NONEXISTENT_CODE")
+
+        assert "NONEXISTENT_CODE" in str(excinfo.value)
+
+    def test_frequencies_invalid_code_in_list_raises_keyerror(self, setup_db):
+        """Test that invalid code in a list raises KeyError mentioning the invalid code"""
+        test_obj, temp_filename = setup_db
+
+        # Get a valid observation code
+        cur = test_obj.conn.cursor()
+        cur.execute("SELECT obs_code FROM lookup_observations LIMIT 1")
+        result = cur.fetchone()
+        if result is None:
+            pytest.skip("No observation codes in database")
+        valid_code = result[0]
+
+        with pytest.raises(KeyError) as excinfo:
+            test_obj.population.frequencies(observation1=[valid_code, "INVALID_CODE"])
+
+        assert "INVALID_CODE" in str(excinfo.value)
+
+    def test_frequencies_empty_when_no_frequencies(self, setup_db):
+        """Test frequencies() returns empty results when frequencies table is empty"""
+        test_obj, temp_filename = setup_db
+
+        # Clear the frequencies table
+        test_obj.conn.execute("DELETE FROM frequencies")
+        test_obj.conn.commit()
+
+        frequencies = test_obj.population.frequencies()
+        frequencies_df = test_obj.population.frequencies(as_pandas=True)
+
+        # Verify empty results
+        assert len(frequencies) == 0
+        assert len(frequencies_df) == 0
+
+    def test_frequencies_empty_when_no_matching_records(self, setup_db):
+        """Test frequencies() returns empty results when filters match nothing"""
+        test_obj, temp_filename = setup_db
+
+        # Get two observation codes
+        cur = test_obj.conn.cursor()
+        cur.execute("SELECT obs_code FROM lookup_observations LIMIT 2")
+        results = cur.fetchall()
+        if len(results) < 2:
+            pytest.skip("Not enough observation codes in database")
+
+        # Clear frequencies and add a specific record
+        test_obj.conn.execute("DELETE FROM frequencies")
+        test_obj.conn.commit()
+
+        # Query with valid codes but no matching data should return empty
+        frequencies = test_obj.population.frequencies(observation1=results[0][0])
+
+        # Verify empty results (not an error)
+        assert isinstance(frequencies, list)
+        assert len(frequencies) == 0
+
+    def test_frequencies_temporal_distance_is_integer(self, setup_db):
+        """Test that temporal_distance is an integer"""
+        test_obj, temp_filename = setup_db
+
+        frequencies = test_obj.population.frequencies()
+
+        # If there are frequencies, verify temporal_distance is an integer
+        if len(frequencies) > 0:
+            for freq in frequencies:
+                assert isinstance(freq["temporal_distance"], int)
+
+    def test_frequencies_counts_are_integers(self, setup_db):
+        """Test that observation_cnt and patient_cnt are integers"""
+        test_obj, temp_filename = setup_db
+
+        frequencies = test_obj.population.frequencies()
+
+        # If there are frequencies, verify counts are integers
+        if len(frequencies) > 0:
+            for freq in frequencies:
+                assert isinstance(freq["observation_cnt"], int)
+                assert isinstance(freq["patient_cnt"], int)

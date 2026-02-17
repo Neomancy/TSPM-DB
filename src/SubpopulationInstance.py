@@ -1,4 +1,5 @@
 from SubpopulationInstancePatients import SubpopulationInstancePatients
+from SubpopulationInstanceSequences import SubpopulationInstanceSequences
 
 class SubpopulationInstance:
     """ Main class for manipulation of a subpopulation """

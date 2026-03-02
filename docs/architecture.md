@@ -5,6 +5,8 @@
 **Transitive Sequential Pattern Mining (TSPM)** is an algorithm for extracting temporal representations from Electronic Health Records (EHRs). It was introduced in the paper:
 
 > Estiri et al., *Transitive Sequencing Medical Records for Mining Predictive and Interpretable Temporal Representations*, Patterns (2020). https://doi.org/10.1016/j.patter.2020.100051
+> 
+> Hügel et al., *tSPM+; a high-performance algorithm for mining transitive sequential patterns from clinical data*, Arxiv preprint (2023). https://doi.org/10.48550/arXiv.2309.05671
 
 The core insight is that raw EHR observations do not directly reflect a patient's true health state — they reflect the clinical process, administrative workflows, and recording practices. TSPM addresses this by mining **transitive sequences**: ordered pairs of distinct observations `(obs_A → obs_B)` where the first occurrence of `obs_A` precedes the first occurrence of `obs_B` in a patient's record.
 

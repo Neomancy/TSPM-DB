@@ -13,7 +13,12 @@ Unlike traditional Sequential Pattern Mining, TSPM:
 
 The resulting sequences serve as features for downstream machine learning tasks such as disease classification and phenotype prediction.
 
-**Reference:** Estiri et al., *Transitive Sequencing Medical Records for Mining Predictive and Interpretable Temporal Representations*, Patterns (2020). https://doi.org/10.1016/j.patter.2020.100051
+**References:** 
+> Estiri et al., *Transitive Sequencing Medical Records for Mining Predictive and Interpretable Temporal Representations*, Patterns (2020). https://doi.org/10.1016/j.patter.2020.100051
+> 
+> Hügel et al., *tSPM+; a high-performance algorithm for mining transitive sequential patterns from clinical data*, Arxiv preprint (2023). https://doi.org/10.48550/arXiv.2309.05671
+
+
 
 ## Features
 

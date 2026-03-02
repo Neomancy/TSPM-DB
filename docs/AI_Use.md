@@ -6,7 +6,7 @@ The TSPM-DB library represents a careful and deliberate approach to integrating 
 
 ## Core Algorithm and API Design
 
-The **Transitive Sequential Pattern Mining (TSPM) algorithm implementation** was designed and hand-built by **Nick Benik** (Neomancy Inc / Harvard Medical School). Nick also architected the library's public API with careful attention to usability for bioinformaticians and data scientists working with electronic health records. The algorithm implementation underwent rigorous optimization to ensure both correctness and performance when processing large-scale EHR datasets.
+The **Transitive Sequential Pattern Mining (TSPM) algorithm implementation** was designed and hand-built by **Nick Benik** (Neomancy Inc / Harvard Medical School). Nick also architected the library's public API with careful attention to usability for bioinformaticians and data scientists working with electronic health records. The algorithm implementation underwent rigorous hand-optimization to ensure both correctness and performance when processing large-scale EHR datasets.
 
 ## AI-Assisted Development
 

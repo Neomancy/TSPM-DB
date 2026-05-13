@@ -247,8 +247,6 @@ class Dataset:
 
         # got the CSV reader... ingest the data
         db_cur = self.conn.cursor()
-        lookup_patients_data = {}
-        lookup_codes_data = {}
         insert_batch = []
         inserted_row_count = 0
         patient_num = 0
@@ -265,7 +263,6 @@ class Dataset:
             # the optional TEXT column does not exist in the csv file, do not use it
             del colnames["TEXT"]
 
-
         # and load the existing lookup tables' data
         if self.cache_patients is None:
             patient_num = 0
@@ -276,8 +273,7 @@ class Dataset:
                 self.cache_patients[row['patient_id']] = temp_num
                 patient_num = temp_num
         else:
-            self.cache_patients = {}
-            patient_num = 0
+            patient_num = max(self.cache_patients.values())
 
         if self.cache_obs is None:
             code_num = 0
@@ -291,8 +287,7 @@ class Dataset:
                 }
                 code_num = temp_num
         else:
-            self.cache_obs = {}
-            code_num = 0
+            code_num = max(map(lambda x: x['num'], self.cache_obs.values()))
 
         # ingest the data
         for row in csvreader:
@@ -307,23 +302,23 @@ class Dataset:
 
             # handle code lookup
             current_row_code_data = row[colnames["CODE"]]
-            if current_row_code_data not in lookup_codes_data:
+            if current_row_code_data not in self.cache_obs:
                 code_num += 1
                 current_patients_code = code_num
-                lookup_codes_data[current_row_code_data] = {
+                self.cache_obs[current_row_code_data] = {
                     "num": code_num,
                     "text": []
                 }
                 if "TEXT" in colnames:
                     for line in row[colnames["TEXT"]].split(",\n"):
-                        lookup_codes_data[current_row_code_data]["text"].append(line)
+                        self.cache_obs[current_row_code_data]["text"].append(line)
             else:
-                current_patients_code = lookup_codes_data[current_row_code_data]["num"]
+                current_patients_code = self.cache_obs[current_row_code_data]["num"]
                 if "TEXT" in colnames:
                     current_row_text_data = row[colnames["TEXT"]]
                     # add the code description if it is not yet saved
-                    if current_row_text_data not in lookup_codes_data[current_row_code_data]["text"]:
-                        lookup_codes_data[current_row_code_data]["text"].append(current_row_text_data)
+                    if current_row_text_data not in self.cache_obs[current_row_code_data]["text"]:
+                        self.cache_obs[current_row_code_data]["text"].append(current_row_text_data)
 
             # get the observation date
             current_patients_date = row[colnames["DATE"]]
@@ -349,8 +344,8 @@ class Dataset:
 
         # save the code lookup table
         patient_code_rows = []
-        for code in lookup_codes_data:
-            text_entry = ",\n".join(lookup_codes_data[code]["text"])
-            patient_code_rows.append((lookup_codes_data[code]["num"], code, text_entry))
+        for code in self.cache_obs:
+            text_entry = ",\n".join(self.cache_obs[code]["text"])
+            patient_code_rows.append((self.cache_obs[code]["num"], code, text_entry))
         db_cur.executemany("INSERT OR IGNORE INTO lookup_observations (obs_code_id, obs_code, obs_description) VALUES (?,?,?)", patient_code_rows)
         self.conn.commit()

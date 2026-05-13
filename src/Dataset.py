@@ -93,6 +93,9 @@ class Dataset:
         else:
             temporal_mode = "HOURS"
 
+        # Validate and store temporal buckets configuration
+        self._validate_and_store_temporal_buckets(temporal_buckets, temporal_mode)
+
         # create / truncate tables
         Create_SEQUENCES(self.conn, destructive=True)
         Create_FREQUENCIES(self.conn, destructive=True)
@@ -186,11 +189,11 @@ class Dataset:
             proc.join()
             proc.close()
 
-        # --- [CLEAN UP THE TEMPORARY DATABASES] -----------------------------------------------------
+        # --- [CLEAN UP THE TEMPORARY DATABASES] -----------------------------------------------------------------------
         for tempdb in temp_db_list:
             os.remove(tempdb)
 
-        # --- [CREATE THE INDEX ON THE SEQUENCES TABLE] -----------------------------------------------------
+        # --- [CREATE THE INDEX ON THE SEQUENCES TABLE] ----------------------------------------------------------------
         Index_SEQUENCES(self.conn)
 
         # Refresh our query plan statistics
@@ -198,26 +201,64 @@ class Dataset:
 
 
     # ========================================================================================
-    def _calculate_sequences(self, temporal_buckets: list = [], sparsity_threshold: float = 0.05, destructive: bool = False):
-        pass
+    def _validate_and_store_temporal_buckets(self, temporal_buckets: list, temporal_mode: str):
+        """
+        Validates temporal buckets and stores them in the conf_buckets table.
 
-        # # create the sequence index AFTER we populate the table
-        # cur.execute(f"""
-        #     CREATE INDEX idx_{table_name} ON {table_name} (
-        #         obs_code_1 ASC,
-        #         obs_code_2 ASC,
-        #         temporal_distance ASC
-        #     );
-        #     """)
-        # cur.connection.commit()
+        Args:
+            temporal_buckets: List of tuples (start, end) representing bucket ranges
+            temporal_mode: Either "DAYS" or "HOURS"
 
-        # # clean up the temp folder
-        # try:
-        #     os.rmdir(temp_dir)
-        # except OSError:
-        #     pass
+        Raises:
+            ValueError: If buckets are invalid (start >= end, overlapping, or invalid mode)
+        """
+        # Validate temporal_mode
+        if temporal_mode not in ("DAYS", "HOURS"):
+            raise ValueError(f"temporal_mode must be 'DAYS' or 'HOURS', got '{temporal_mode}'")
 
+        # Clear existing buckets
+        cur = self.conn.cursor()
+        cur.execute("DELETE FROM conf_buckets")
+        self.conn.commit()
 
+        # If no buckets provided, nothing more to do
+        if not temporal_buckets:
+            return
+
+        # Validate buckets
+        for i, bucket in enumerate(temporal_buckets):
+            if not isinstance(bucket, (tuple, list)) or len(bucket) != 2:
+                raise ValueError(f"Bucket {i} must be a tuple/list of (start, end), got {bucket}")
+
+            start, end = bucket
+
+            # Validate start < end
+            if start >= end:
+                raise ValueError(f"Bucket {i}: start ({start}) must be less than end ({end})")
+
+        # Check for overlapping buckets
+        sorted_buckets = sorted(temporal_buckets, key=lambda x: x[0])
+        for i in range(len(sorted_buckets) - 1):
+            current_end = sorted_buckets[i][1]
+            next_start = sorted_buckets[i + 1][0]
+            if current_end > next_start:
+                raise ValueError(
+                    f"Buckets overlap: bucket {i} ends at {current_end} but bucket {i+1} starts at {next_start}"
+                )
+
+        # Insert buckets into conf_buckets table
+        insert_data = [
+            (i + 1, start, end, temporal_mode)
+            for i, (start, end) in enumerate(temporal_buckets)
+        ]
+
+        cur.executemany(
+            "INSERT INTO conf_buckets (bucket_id, start, end, units) VALUES (?, ?, ?, ?)",
+            insert_data
+        )
+        self.conn.commit()
+
+    # ========================================================================================
 
 # ======================================================================================================================
     def _ingest_csv(self, csvfile: str, colnames: list, zipfile: str = None, batch_size: int = 10000, show_progress: bool = True):

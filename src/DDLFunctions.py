@@ -200,6 +200,49 @@ def Index_SEQUENCES(db_conn, destructive:bool = False):
     db_conn.commit()
 
 
+# ----------------------------------------------------------------------------------------
+def Create_CONFIG(db_conn, destructive:bool = False):
+    if not isinstance(db_conn, sqlite3.Connection):
+        raise SyntaxError("database connection was not passed")
+
+    cur = db_conn.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = [name[0] for name in cur.fetchall()]
+
+    if "config" not in tables:
+        cur.execute("""
+            CREATE TABLE config (
+                key TEXT PRIMARY KEY,
+                value TEXT
+            );
+        """)
+    else:
+        if destructive:
+            cur.execute("DELETE FROM config;")
+        else:
+            raise Exception("CONFIG table already exists")
+
+        # insert the default values
+        cur.execute("INSERT INTO config (key, value) VALUES ('version', '1.0');")
+        cur.execute("INSERT INTO config (key, value) VALUES ('schema', 1);")
+
+    if "config" not in tables:
+        cur.execute("""
+            CREATE TABLE conf_buckets (
+                bucket_id NUMERIC PRIMARY KEY,
+                start     NUMERIC,
+                end       NUMERIC,
+                units     TEXT    CHECK (units IN ("DAYS", "HOURS") ) 
+            );
+        """)
+    else:
+        if destructive:
+            cur.execute("DELETE FROM conf_buckets;")
+        else:
+            raise Exception("CONF_BUCKETS table already exists")
+
+    db_conn.commit()
+
 
 # ----------------------------------------------------------------------------------------
 def Create_FREQUENCIES(db_conn, destructive:bool = False):
@@ -249,3 +292,4 @@ def Create_Base_DB(db_conn, destructive:bool = False):
     Create_SUBPOPULATIONS(db_conn, destructive)
     Create_SEQUENCES(db_conn, destructive)
     Create_FREQUENCIES(db_conn, destructive)
+    Create_CONFIG(db_conn, destructive)
